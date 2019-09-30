@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B4DB7832341E49B009FB378 /* JapFoodClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9B4DB7822341E49B009FB378 /* JapFoodClassifier.mlmodel */; };
 		9BA62676233D942700A8CB90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA62675233D942700A8CB90 /* AppDelegate.swift */; };
 		9BA62678233D942700A8CB90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA62677233D942700A8CB90 /* SceneDelegate.swift */; };
 		9BA6267A233D942700A8CB90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA62679233D942700A8CB90 /* ViewController.swift */; };
@@ -16,11 +17,10 @@
 		9BA6268E233DA02800A8CB90 /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6268D233DA02800A8CB90 /* RoundedShadowView.swift */; };
 		9BA62690233DA6F200A8CB90 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6268F233DA6F200A8CB90 /* RoundedButton.swift */; };
 		9BA62692233DA79000A8CB90 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA62691233DA79000A8CB90 /* RoundedImageView.swift */; };
-		9BA62694233DD67900A8CB90 /* Food11Classifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9BA62693233DD67800A8CB90 /* Food11Classifier.mlmodel */; };
-		9BA62696233DE64200A8CB90 /* FoodClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9BA62695233DE64200A8CB90 /* FoodClassifier.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B4DB7822341E49B009FB378 /* JapFoodClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = JapFoodClassifier.mlmodel; sourceTree = "<group>"; };
 		9BA62672233D942700A8CB90 /* MLProject2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLProject2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BA62675233D942700A8CB90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BA62677233D942700A8CB90 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,8 +32,6 @@
 		9BA6268D233DA02800A8CB90 /* RoundedShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowView.swift; sourceTree = "<group>"; };
 		9BA6268F233DA6F200A8CB90 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		9BA62691233DA79000A8CB90 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
-		9BA62693233DD67800A8CB90 /* Food11Classifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Food11Classifier.mlmodel; sourceTree = "<group>"; };
-		9BA62695233DE64200A8CB90 /* FoodClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FoodClassifier.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +98,7 @@
 		9BA6268C233D9FF800A8CB90 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9BA62693233DD67800A8CB90 /* Food11Classifier.mlmodel */,
-				9BA62695233DE64200A8CB90 /* FoodClassifier.mlmodel */,
+				9B4DB7822341E49B009FB378 /* JapFoodClassifier.mlmodel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -180,11 +177,10 @@
 				9BA6268E233DA02800A8CB90 /* RoundedShadowView.swift in Sources */,
 				9BA62690233DA6F200A8CB90 /* RoundedButton.swift in Sources */,
 				9BA62692233DA79000A8CB90 /* RoundedImageView.swift in Sources */,
-				9BA62696233DE64200A8CB90 /* FoodClassifier.mlmodel in Sources */,
+				9B4DB7832341E49B009FB378 /* JapFoodClassifier.mlmodel in Sources */,
 				9BA6267A233D942700A8CB90 /* ViewController.swift in Sources */,
 				9BA62676233D942700A8CB90 /* AppDelegate.swift in Sources */,
 				9BA62678233D942700A8CB90 /* SceneDelegate.swift in Sources */,
-				9BA62694233DD67900A8CB90 /* Food11Classifier.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

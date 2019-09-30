@@ -163,7 +163,7 @@ extension ViewController: AVCapturePhotoCaptureDelegate {
             photoData = photo.fileDataRepresentation()
             
             do {
-                let model = try VNCoreMLModel(for: FoodClassifier().model)
+                let model = try VNCoreMLModel(for: JapFoodClassifier().model)
                 let request = VNCoreMLRequest(model: model, completionHandler: resultMethod)
                 let handler = VNImageRequestHandler(data: photoData!)
                 try handler.perform([request])
