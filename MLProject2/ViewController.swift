@@ -17,10 +17,15 @@ enum FlashState {
     case on
 }
 
+let imageON = UIImage(named: "flashON.png")
+let imageOFF = UIImage(named: "flashOFF.png")
+      
+      
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UINavigationControllerDelegate {
     
         
+    @IBOutlet weak var openLibraryView: UIView!
     @IBOutlet weak var capturedImageView: RoundedImageView!
     @IBOutlet weak var identificationLabel: UILabel!
     @IBOutlet weak var percentageLabel: UILabel!
@@ -43,6 +48,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        activityIndicator.isHidden = true
+        flashButton.setImage(imageOFF, for: .normal)
+     
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -80,7 +88,9 @@ class ViewController: UIViewController {
                 
                 cameraView.layer.addSublayer(previewLayer!)
                 cameraView.addGestureRecognizer(tap)
-                captureSession.startRunning() 
+                captureSession.startRunning()
+                
+                openLibrarySetup()
             }
             
         } catch {
@@ -103,7 +113,6 @@ class ViewController: UIViewController {
         } else {
             settings.flashMode = .on
         }
-            
             cameraOutput.capturePhoto(with: settings, delegate: self)
     }
     
@@ -134,25 +143,54 @@ class ViewController: UIViewController {
         let speechUtterance = AVSpeechUtterance(string: string)
         speechSynthesizer.speak(speechUtterance)
     }
+   
+    //Update Result Method when Photo is From Library
+    
+    func updatedResultMethod(request: VNRequest, error: Error?) {
+      //code
+    }
+    
+    //Open Library View Tap Gesture
+    func openLibrarySetup() {
+    
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+        openLibraryView.addGestureRecognizer(tapGesture)
+    
+    }
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = false
+        picker.delegate = self
+        picker.sourceType = .photoLibrary
+        present(picker, animated: true)
+    }
     
     
     @IBAction func flashButtonTapped(_ sender: Any) {
         switch flashControlState {
         case .off:
-            flashButton.setTitle("FLASH ON", for: .normal)
+            //flashButton.setTitle("FLASH ON", for: .normal)
+            flashButton.setImage(imageON, for: .normal)
             flashControlState = .on
         case .on:
-            flashButton.setTitle("FLASH OFF", for: .normal)
+            //flashButton.setTitle("FLASH OFF", for: .normal)
+            flashButton.setImage(imageOFF, for: .normal)
             flashControlState = .off
-     
         }
-
-        
     }
-    
-
 }
 
+extension ViewController: UIImagePickerControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+       // guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        //code here
+    }
+}
 
 extension ViewController: AVCapturePhotoCaptureDelegate {
     
@@ -170,7 +208,6 @@ extension ViewController: AVCapturePhotoCaptureDelegate {
             } catch {
                 debugPrint(error)
             }
-            
             let image = UIImage(data: photoData!)
             self.capturedImageView.image = image
         }
