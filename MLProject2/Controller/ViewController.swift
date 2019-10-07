@@ -17,8 +17,12 @@ enum FlashState {
     case on
 }
 
+let imageON = UIImage(named: "flashON.png")
+let imageOFF = UIImage(named: "flashOFF.png")
+      
+      
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UINavigationControllerDelegate {
     
         
     @IBOutlet weak var capturedImageView: RoundedImageView!
@@ -43,6 +47,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        activityIndicator.isHidden = true
+        flashButton.setImage(imageOFF, for: .normal)
+     
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -80,7 +87,8 @@ class ViewController: UIViewController {
                 
                 cameraView.layer.addSublayer(previewLayer!)
                 cameraView.addGestureRecognizer(tap)
-                captureSession.startRunning() 
+                captureSession.startRunning()
+                
             }
             
         } catch {
@@ -134,23 +142,65 @@ class ViewController: UIViewController {
         let speechUtterance = AVSpeechUtterance(string: string)
         speechSynthesizer.speak(speechUtterance)
     }
+   
+    //Update Result Method when Photo is From Library
     
+    func updateClassification(for image: UIImage) {
+        identificationLabel.text = "Classifying..."
+        
+         guard let orientation = CGImagePropertyOrientation(rawValue: UInt32(image.imageOrientation.rawValue)), let ciImage = CIImage(image: image) else {
+                   print("Something went wrong...\nPlease try again")
+                   return
+               }
+        
+        let handler = VNImageRequestHandler(ciImage: ciImage, orientation: orientation)
+        
+        do {
+            let model = try VNCoreMLModel(for: JapFoodClassifier().model)
+            let request = VNCoreMLRequest(model: model, completionHandler: resultMethod)
+            try handler.perform([request])
+        } catch {
+            print("failed to perform classification \(error.localizedDescription)")
+        }
+    
+    }
     
     @IBAction func flashButtonTapped(_ sender: Any) {
         switch flashControlState {
         case .off:
-            flashButton.setTitle("FLASH ON", for: .normal)
+            //flashButton.setTitle("FLASH ON", for: .normal)
+            flashButton.setImage(imageON, for: .normal)
             flashControlState = .on
         case .on:
-            flashButton.setTitle("FLASH OFF", for: .normal)
+            //flashButton.setTitle("FLASH OFF", for: .normal)
+            flashButton.setImage(imageOFF, for: .normal)
             flashControlState = .off
-     
         }
-
+    }
+    
+    
+    
+    @IBAction func openLibraryButtonTapped(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = false
+        picker.delegate = self
+        picker.sourceType = .photoLibrary
+        present(picker, animated: true)
         
     }
     
-
+    
+ //OnBoarding Button
+    
+    @IBAction func infoButtonTapped(_ sender: Any) {
+        DispatchQueue.main.async {
+                   let OnBoardPage = self.storyboard?.instantiateViewController(withIdentifier: "OnBoardVC") as! OnBoardingViewController
+                   let appDelegate = UIApplication.shared.delegate
+                   appDelegate?.window??.rootViewController = OnBoardPage
+                   
+               }
+    }
+    
 }
 
 
@@ -175,6 +225,7 @@ extension ViewController: AVCapturePhotoCaptureDelegate {
             self.capturedImageView.image = image
         }
     }
+    
 }
 
 
@@ -185,3 +236,24 @@ extension ViewController: AVSpeechSynthesizerDelegate {
         self.activityIndicator.stopAnimating()
     }
 }
+
+
+extension ViewController: UIImagePickerControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        
+        capturedImageView.image = image
+        
+        updateClassification(for: image)
+       
+    }
+
+}
+
+
