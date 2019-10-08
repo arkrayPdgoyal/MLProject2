@@ -21,7 +21,7 @@
                                 <viewLayoutGuide key="safeArea" id="TPV-ec-XaV"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTy-Uh-jv2" customClass="RoundedShadowView" customModule="MLProject2" customModuleProvider="target">
-                                <rect key="frame" x="20" y="121" width="374" height="60"/>
+                                <rect key="frame" x="20" y="76" width="374" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="AQ6-do-GxT">
                                         <rect key="frame" x="6" y="6" width="362" height="42.5"/>
@@ -58,7 +58,7 @@
                                 </constraints>
                                 <state key="normal" image="info"/>
                                 <connections>
-                                    <action selector="infoButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lXQ-Ug-RlA"/>
+                                    <action selector="infoButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FBu-iZ-0Yx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3d2-P8-kPr" customClass="RoundedButton" customModule="MLProject2" customModuleProvider="target">
@@ -123,7 +123,7 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3d2-P8-kPr" secondAttribute="bottom" constant="61" id="4si-ZR-9c2"/>
                             <constraint firstItem="gGH-bO-vUM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5Lu-Pg-qUC"/>
-                            <constraint firstItem="cTy-Uh-jv2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="77" id="6gi-80-vdA"/>
+                            <constraint firstItem="cTy-Uh-jv2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="6gi-80-vdA"/>
                             <constraint firstAttribute="bottom" secondItem="gGH-bO-vUM" secondAttribute="bottom" id="8Cw-3N-T2m"/>
                             <constraint firstItem="gGH-bO-vUM" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="EOS-Xt-uI7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jRu-sc-SdJ" secondAttribute="trailing" constant="20" id="Gtk-Zf-P7Y"/>
@@ -139,7 +139,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Kst-Lp-13A"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Az1-aF-M97" id="OE0-ld-PrV"/>
                         <outlet property="cameraView" destination="gGH-bO-vUM" id="uTW-dn-ai5"/>
@@ -157,34 +156,32 @@
         <!--On Boarding View Controller-->
         <scene sceneID="MXo-H2-wJ4">
             <objects>
-                <viewController storyboardIdentifier="OnBoardVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hrc-hG-OO3" customClass="OnBoardingViewController" customModule="MLProject2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnBoardVC" id="Hrc-hG-OO3" customClass="OnBoardingViewController" customModule="MLProject2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nPI-wN-S91">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AGf-U6-Zzx" customClass="PaperOnboarding" customModule="paper_onboarding">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehl-lu-3pD">
-                                        <rect key="frame" x="317" y="98" width="33" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="SKIP"/>
-                                        <connections>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="cyr-FW-cQs"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euE-SC-aA2">
-                                        <rect key="frame" x="145" y="718" width="124" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="19"/>
-                                        <state key="normal" title="GET STARTED"/>
-                                        <connections>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="wId-c9-Jhu"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euE-SC-aA2">
+                                <rect key="frame" x="145" y="724" width="124" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="19"/>
+                                <state key="normal" title="GET STARTED"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="wId-c9-Jhu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehl-lu-3pD">
+                                <rect key="frame" x="302" y="74" width="73" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="SKIP"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="cyr-FW-cQs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -203,7 +200,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lvy-qe-aVy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="220" y="383"/>
+            <point key="canvasLocation" x="218.84057971014494" y="382.36607142857139"/>
         </scene>
     </scenes>
     <resources>

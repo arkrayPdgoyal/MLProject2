@@ -57,9 +57,6 @@
 		3F68C797234B1CF700C93290 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				9BA6268D233DA02800A8CB90 /* RoundedShadowView.swift */,
-				9BA6268F233DA6F200A8CB90 /* RoundedButton.swift */,
-				9BA62691233DA79000A8CB90 /* RoundedImageView.swift */,
 				3F68C79A234B1DDF00C93290 /* ButtonAnimation.swift */,
 			);
 			path = UI;
@@ -100,6 +97,8 @@
 				9BA62689233D9FCF00A8CB90 /* Controller */,
 				9BA62675233D942700A8CB90 /* AppDelegate.swift */,
 				9BA62677233D942700A8CB90 /* SceneDelegate.swift */,
+				9BA62679233D942700A8CB90 /* ViewController.swift */,
+				3F68C795234B194C00C93290 /* OnBoardingViewController.swift */,
 				9BA6267E233D942700A8CB90 /* Assets.xcassets */,
 				9BA62683233D942700A8CB90 /* Info.plist */,
 			);
@@ -109,8 +108,6 @@
 		9BA62689233D9FCF00A8CB90 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9BA62679233D942700A8CB90 /* ViewController.swift */,
-				3F68C795234B194C00C93290 /* OnBoardingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -118,6 +115,9 @@
 		9BA6268B233D9FEF00A8CB90 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9BA6268D233DA02800A8CB90 /* RoundedShadowView.swift */,
+				9BA6268F233DA6F200A8CB90 /* RoundedButton.swift */,
+				9BA62691233DA79000A8CB90 /* RoundedImageView.swift */,
 				9BA62680233D942700A8CB90 /* LaunchScreen.storyboard */,
 				9BA6267B233D942700A8CB90 /* Main.storyboard */,
 			);

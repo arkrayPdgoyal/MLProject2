@@ -194,15 +194,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBAction func infoButtonTapped(_ sender: Any) {
         DispatchQueue.main.async {
-                   let OnBoardPage = self.storyboard?.instantiateViewController(withIdentifier: "OnBoardVC") as! OnBoardingViewController
-                   let appDelegate = UIApplication.shared.delegate
-                   appDelegate?.window??.rootViewController = OnBoardPage
-                   
-               }
+            let OnBoardPage = self.storyboard?.instantiateViewController(withIdentifier: "OnBoardVC") as! OnBoardingViewController
+            let appDelegate = UIApplication.shared.delegate
+            appDelegate?.window??.rootViewController = OnBoardPage
+            
+        }
+        
+        }
+        
     }
     
-}
-
 
 extension ViewController: AVCapturePhotoCaptureDelegate {
     
