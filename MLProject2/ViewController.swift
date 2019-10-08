@@ -25,6 +25,7 @@ let imageOFF = UIImage(named: "flashOFF.png")
 class ViewController: UIViewController, UINavigationControllerDelegate {
     
         
+    @IBOutlet weak var openLibraryView: UIView!
     @IBOutlet weak var capturedImageView: RoundedImageView!
     @IBOutlet weak var identificationLabel: UILabel!
     @IBOutlet weak var percentageLabel: UILabel!
@@ -89,6 +90,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
                 cameraView.addGestureRecognizer(tap)
                 captureSession.startRunning()
                 
+
             }
             
         } catch {
@@ -111,7 +113,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
         } else {
             settings.flashMode = .on
         }
-            
             cameraOutput.capturePhoto(with: settings, delegate: self)
     }
     
@@ -144,7 +145,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     }
    
     //Update Result Method when Photo is From Library
-    
+
     func updateClassification(for image: UIImage) {
         identificationLabel.text = "Classifying..."
         
@@ -177,33 +178,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
             flashControlState = .off
         }
     }
+
     
-    
-    
-    @IBAction func openLibraryButtonTapped(_ sender: Any) {
-        let picker = UIImagePickerController()
-        picker.allowsEditing = false
-        picker.delegate = self
-        picker.sourceType = .photoLibrary
-        present(picker, animated: true)
-        
-    }
-    
-    
- //OnBoarding Button
-    
-    @IBAction func infoButtonTapped(_ sender: Any) {
-        DispatchQueue.main.async {
-            let OnBoardPage = self.storyboard?.instantiateViewController(withIdentifier: "OnBoardVC") as! OnBoardingViewController
-            let appDelegate = UIApplication.shared.delegate
-            appDelegate?.window??.rootViewController = OnBoardPage
-            
-        }
-        
-        }
-        
-    }
-    
+}
+
 
 extension ViewController: AVCapturePhotoCaptureDelegate {
     
@@ -221,7 +199,6 @@ extension ViewController: AVCapturePhotoCaptureDelegate {
             } catch {
                 debugPrint(error)
             }
-            
             let image = UIImage(data: photoData!)
             self.capturedImageView.image = image
         }
