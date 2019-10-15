@@ -24,15 +24,18 @@ let imageOFF = UIImage(named: "flashOFF.png")
 
 class ViewController: UIViewController, UINavigationControllerDelegate {
     
-        
-    @IBOutlet weak var openLibraryView: UIView!
-    @IBOutlet weak var capturedImageView: RoundedImageView!
+
+    @IBOutlet weak var capturedImageView: UIImageView!
     @IBOutlet weak var identificationLabel: UILabel!
     @IBOutlet weak var percentageLabel: UILabel!
     @IBOutlet weak var flashButton: RoundedButton!
     @IBOutlet weak var cameraView: UIView! 
     @IBOutlet weak var roundedLabelView: RoundedShadowView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var detailTapImageView: UIView!
+    @IBOutlet weak var photoLibraryButton: UIButton!
+    
+    
     
     var captureSession: AVCaptureSession!
     var cameraOutput: AVCapturePhotoOutput!
@@ -44,11 +47,13 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     
     var speechSynthesizer = AVSpeechSynthesizer()
 
+    var sourceImage: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         activityIndicator.isHidden = true
+        detailTapImageView.isHidden = true
         flashButton.setImage(imageOFF, for: .normal)
      
     }
@@ -116,6 +121,20 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
             cameraOutput.capturePhoto(with: settings, delegate: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetailsVC" {
+            let detailsVC = segue.destination as! DetailsViewController
+           detailsVC.capturedImage = self.sourceImage
+        }
+    }
+    
+    func roundedImageViewSetup() {
+        capturedImageView.layer.shadowColor = UIColor.darkGray.cgColor
+        capturedImageView.layer.shadowRadius = 15
+        capturedImageView.layer.shadowOpacity = 0.75
+        capturedImageView.layer.cornerRadius = 15
+    }
+    
     func resultMethod(request: VNRequest, error: Error?) {
         //handle changing the label text
         guard let results = request.results as? [VNClassificationObservation]  else{ return }
@@ -166,6 +185,20 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     
     }
     
+    func showDetailsView() {
+        
+        detailTapImageView.isHidden = false
+        //1.create gesture recognizer (tap gesture)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+        //2.add the gesture recognizer to a view
+        detailTapImageView.addGestureRecognizer(tapGesture)
+        
+    }
+    
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+       performSegue(withIdentifier: "showDetailsVC", sender: self)
+    }
+    
     @IBAction func flashButtonTapped(_ sender: Any) {
         switch flashControlState {
         case .off:
@@ -178,7 +211,18 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
             flashControlState = .off
         }
     }
-
+    
+    
+    
+    @IBAction func photoLibraryButtonTapped(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = false
+        picker.delegate = self
+        picker.sourceType = .photoLibrary
+        present(picker, animated: true)
+        
+    }
+    
     
 }
 
@@ -199,8 +243,10 @@ extension ViewController: AVCapturePhotoCaptureDelegate {
             } catch {
                 debugPrint(error)
             }
-            let image = UIImage(data: photoData!)
+            var image = UIImage(data: photoData!)
             self.capturedImageView.image = image
+            image = sourceImage
+            showDetailsView()
         }
     }
     
@@ -227,9 +273,11 @@ extension ViewController: UIImagePickerControllerDelegate {
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         
         capturedImageView.image = image
+      
         
         updateClassification(for: image)
-       
+     //    image = sourceImage
+        showDetailsView()
     }
 
 }

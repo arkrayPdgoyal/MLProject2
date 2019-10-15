@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F68C796234B194C00C93290 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F68C795234B194C00C93290 /* OnBoardingViewController.swift */; };
 		3F68C79B234B1DDF00C93290 /* ButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F68C79A234B1DDF00C93290 /* ButtonAnimation.swift */; };
+		3F93F3D22355666C008FA7DF /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F93F3D12355666C008FA7DF /* DetailsViewController.swift */; };
 		9B4DB7832341E49B009FB378 /* JapFoodClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9B4DB7822341E49B009FB378 /* JapFoodClassifier.mlmodel */; };
 		9BA62676233D942700A8CB90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA62675233D942700A8CB90 /* AppDelegate.swift */; };
 		9BA62678233D942700A8CB90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA62677233D942700A8CB90 /* SceneDelegate.swift */; };
@@ -23,8 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3F68C795234B194C00C93290 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		3F68C79A234B1DDF00C93290 /* ButtonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAnimation.swift; sourceTree = "<group>"; };
+		3F93F3D12355666C008FA7DF /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		5CC9B5119D33BC569E4E47C8 /* Pods_MLProject2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MLProject2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D6C89D9007EDEF3A84F9663 /* Pods-MLProject2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLProject2.debug.xcconfig"; path = "Target Support Files/Pods-MLProject2/Pods-MLProject2.debug.xcconfig"; sourceTree = "<group>"; };
 		9B4DB7822341E49B009FB378 /* JapFoodClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = JapFoodClassifier.mlmodel; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 				9BA62675233D942700A8CB90 /* AppDelegate.swift */,
 				9BA62677233D942700A8CB90 /* SceneDelegate.swift */,
 				9BA62679233D942700A8CB90 /* ViewController.swift */,
-				3F68C795234B194C00C93290 /* OnBoardingViewController.swift */,
+				3F93F3D12355666C008FA7DF /* DetailsViewController.swift */,
 				9BA6267E233D942700A8CB90 /* Assets.xcassets */,
 				9BA62683233D942700A8CB90 /* Info.plist */,
 			);
@@ -258,9 +258,9 @@
 			files = (
 				9BA6268E233DA02800A8CB90 /* RoundedShadowView.swift in Sources */,
 				9BA62690233DA6F200A8CB90 /* RoundedButton.swift in Sources */,
+				3F93F3D22355666C008FA7DF /* DetailsViewController.swift in Sources */,
 				3F68C79B234B1DDF00C93290 /* ButtonAnimation.swift in Sources */,
 				9BA62692233DA79000A8CB90 /* RoundedImageView.swift in Sources */,
-				3F68C796234B194C00C93290 /* OnBoardingViewController.swift in Sources */,
 				9B4DB7832341E49B009FB378 /* JapFoodClassifier.mlmodel in Sources */,
 				9BA6267A233D942700A8CB90 /* ViewController.swift in Sources */,
 				9BA62676233D942700A8CB90 /* AppDelegate.swift in Sources */,
@@ -409,15 +409,18 @@
 			baseConfigurationReference = 5D6C89D9007EDEF3A84F9663 /* Pods-MLProject2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2WW6AT4KAC;
+				DEVELOPMENT_TEAM = FS5454LL5C;
 				INFOPLIST_FILE = MLProject2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sample.MLProject2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -428,15 +431,18 @@
 			baseConfigurationReference = E6ED67EA5E7947BC46EFCEF0 /* Pods-MLProject2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2WW6AT4KAC;
+				DEVELOPMENT_TEAM = FS5454LL5C;
 				INFOPLIST_FILE = MLProject2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sample.MLProject2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

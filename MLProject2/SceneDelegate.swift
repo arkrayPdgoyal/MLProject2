@@ -5,7 +5,7 @@
 //  Created by Erish Latorre on 9/27/19.
 //  Copyright © 2019 Arkray. All rights reserved.
 //
-
+/*
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -51,3 +51,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+*/
