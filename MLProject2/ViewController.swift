@@ -19,12 +19,9 @@ enum FlashState {
 
 let imageON = UIImage(named: "flashON.png")
 let imageOFF = UIImage(named: "flashOFF.png")
-      
-      
 
 class ViewController: UIViewController, UINavigationControllerDelegate {
     
-
     @IBOutlet weak var capturedImageView: UIImageView!
     @IBOutlet weak var identificationLabel: UILabel!
     @IBOutlet weak var percentageLabel: UILabel!
@@ -34,8 +31,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var detailTapImageView: UIView!
     @IBOutlet weak var photoLibraryButton: UIButton!
-    
-    
     
     var captureSession: AVCaptureSession!
     var cameraOutput: AVCapturePhotoOutput!
@@ -49,12 +44,18 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
 
     var sourceImage: UIImage!
     
+    var classifier: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         activityIndicator.isHidden = true
         detailTapImageView.isHidden = true
         flashButton.setImage(imageOFF, for: .normal)
+        capturedImageView.image = sourceImage
+        identificationLabel.text = "Please 'TAP' screen to capture photo"
+        
+        
      
     }
     
@@ -62,10 +63,13 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
         super.viewDidAppear(animated)
         previewLayer.frame = cameraView.bounds
         speechSynthesizer.delegate = self
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapCameraView))
         tap.numberOfTouchesRequired = 1
@@ -124,7 +128,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetailsVC" {
             let detailsVC = segue.destination as! DetailsViewController
-           detailsVC.capturedImage = self.sourceImage
+           detailsVC.capturedImage = self.capturedImageView.image
+            detailsVC.classifier = self.classifier
         }
     }
     
@@ -147,9 +152,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
                 self.percentageLabel.text = ""
                 break
             } else {
-                let identification = classification.identifier
+                var identification = classification.identifier
                 let confidence = Int(classification.confidence * 100)
                 self.identificationLabel.text = identification
+              //  identification = classifier
                 self.percentageLabel.text = "CONFIDENCE: \(confidence)%"
                 let completeSentence = "This looks like = \(identification) and I'm \(confidence) percent"
                 synthesizeSpeech(fromString: completeSentence)
@@ -196,17 +202,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @objc func handleTap(sender: UITapGestureRecognizer) {
+       
        performSegue(withIdentifier: "showDetailsVC", sender: self)
     }
     
     @IBAction func flashButtonTapped(_ sender: Any) {
         switch flashControlState {
         case .off:
-            //flashButton.setTitle("FLASH ON", for: .normal)
             flashButton.setImage(imageON, for: .normal)
             flashControlState = .on
         case .on:
-            //flashButton.setTitle("FLASH OFF", for: .normal)
             flashButton.setImage(imageOFF, for: .normal)
             flashControlState = .off
         }
@@ -273,10 +278,7 @@ extension ViewController: UIImagePickerControllerDelegate {
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         
         capturedImageView.image = image
-      
-        
         updateClassification(for: image)
-     //    image = sourceImage
         showDetailsView()
     }
 

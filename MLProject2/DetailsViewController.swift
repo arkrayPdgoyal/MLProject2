@@ -16,13 +16,17 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var caloriesView: UIView!
     @IBOutlet weak var totalFatView: UIView!
     @IBOutlet weak var cholesterolView: UIView!
+    @IBOutlet weak var classificationLabel: UILabel!
+    
     
     var capturedImage: UIImage!
+    var classifier: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-      showDetailsView()
+        capturedImageView.image = capturedImage
+        classificationLabel.text = classifier
+        showDetailsView()
 
     }
 
@@ -30,9 +34,7 @@ class DetailsViewController: UIViewController {
     //MARK: FUNCTION
     
     func showDetailsView() {
-        
-        capturedImageView.image = capturedImage
-        
+    
         detailsView.layer.shadowColor = UIColor.black.cgColor
         detailsView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
         detailsView.layer.shadowRadius = 1.0

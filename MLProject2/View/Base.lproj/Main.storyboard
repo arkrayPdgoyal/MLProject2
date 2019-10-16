@@ -161,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1952.1739130434785" y="138.61607142857142"/>
+            <point key="canvasLocation" x="1772" y="139"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="5jy-Mn-rhX">
@@ -176,13 +176,30 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Screen Shot 2019-10-14 at 3.48.03 PM" translatesAutoresizingMaskIntoConstraints="NO" id="xZl-NU-7Th">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZl-NU-7Th">
                                 <rect key="frame" x="17" y="77" width="379" height="349"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2IY-TO-suV">
                                 <rect key="frame" x="17" y="462" width="379" height="312"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Food Classification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ee5-1C-eNC">
+                                        <rect key="frame" x="24" y="37" width="330" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="0CI-E3-dTN">
+                                        <rect key="frame" x="20" y="92" width="339" height="189"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kaO-qd-RTl">
@@ -191,12 +208,12 @@
                                 <color key="backgroundColor" red="1" green="0.44878525362653943" blue="0.97161747868376624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Hd-be-Lb2">
-                                <rect key="frame" x="147" y="782" width="120" height="54"/>
+                                <rect key="frame" x="146" y="782" width="120" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.64349186688438409" green="0.57921702948675036" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MM0-vQ-Ew9">
-                                <rect key="frame" x="276" y="782" width="120" height="54"/>
+                                <rect key="frame" x="275" y="782" width="120" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.32977528976693649" green="1" blue="0.59808101337639141" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -220,13 +237,14 @@
                         <outlet property="caloriesView" destination="kaO-qd-RTl" id="HFo-6p-JEw"/>
                         <outlet property="capturedImageView" destination="xZl-NU-7Th" id="EmF-9T-wX0"/>
                         <outlet property="cholesterolView" destination="MM0-vQ-Ew9" id="Ec2-uL-jmo"/>
+                        <outlet property="classificationLabel" destination="Ee5-1C-eNC" id="ZB3-Vc-acB"/>
                         <outlet property="detailsView" destination="2IY-TO-suV" id="LrC-NN-lRh"/>
                         <outlet property="totalFatView" destination="1Hd-be-Lb2" id="fxK-mn-ffd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y5h-T6-wqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3012" y="139"/>
+            <point key="canvasLocation" x="2494.202898550725" y="138.61607142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NcG-25-hpD">
@@ -249,7 +267,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Screen Shot 2019-10-14 at 3.48.03 PM" width="1206" height="1108"/>
         <image name="close" width="512" height="512"/>
         <image name="dish" width="512" height="512"/>
         <image name="flashOFF" width="512" height="512"/>
