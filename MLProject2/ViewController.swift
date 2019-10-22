@@ -46,14 +46,18 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     
     var classifier: String!
     
+    let picker = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        photoLibraryButton.isHidden = false
         activityIndicator.isHidden = true
         detailTapImageView.isHidden = true
         flashButton.setImage(imageOFF, for: .normal)
         capturedImageView.image = sourceImage
         identificationLabel.text = "Please 'TAP' screen to capture photo"
+       
         
         
      
@@ -63,6 +67,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
         super.viewDidAppear(animated)
         previewLayer.frame = cameraView.bounds
         speechSynthesizer.delegate = self
+        
+        
         
     }
 
@@ -99,6 +105,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
                 cameraView.addGestureRecognizer(tap)
                 captureSession.startRunning()
                 
+               
 
             }
             
@@ -130,6 +137,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
             let detailsVC = segue.destination as! DetailsViewController
            detailsVC.capturedImage = self.capturedImageView.image
             detailsVC.classifier = self.classifier
+            
         }
     }
     
@@ -152,10 +160,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
                 self.percentageLabel.text = ""
                 break
             } else {
-                var identification = classification.identifier
+                let identification = classification.identifier
                 let confidence = Int(classification.confidence * 100)
                 self.identificationLabel.text = identification
-              //  identification = classifier
+                classifier = self.identificationLabel.text
                 self.percentageLabel.text = "CONFIDENCE: \(confidence)%"
                 let completeSentence = "This looks like = \(identification) and I'm \(confidence) percent"
                 synthesizeSpeech(fromString: completeSentence)
@@ -220,11 +228,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     
     
     @IBAction func photoLibraryButtonTapped(_ sender: Any) {
-        let picker = UIImagePickerController()
+        
         picker.allowsEditing = false
         picker.delegate = self
         picker.sourceType = .photoLibrary
-        present(picker, animated: true)
+       //present(picker, animated: true)
+        //performSegue(withIdentifier: "showDetailsVC", sender: self)
+        
+        present(picker, animated: true) {
+            self.performSegue(withIdentifier: "showDetailsVC", sender: self)
+        }
         
     }
     
