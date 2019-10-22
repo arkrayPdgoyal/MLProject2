@@ -53,7 +53,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
         // Do any additional setup after loading the view.
         photoLibraryButton.isHidden = false
         activityIndicator.isHidden = true
-        detailTapImageView.isHidden = true
+        //detailTapImageView.isHidden = true
         flashButton.setImage(imageOFF, for: .normal)
         capturedImageView.image = sourceImage
         identificationLabel.text = "Please 'TAP' screen to capture photo"
@@ -74,8 +74,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapCameraView))
         tap.numberOfTouchesRequired = 1
@@ -228,16 +226,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     
     
     @IBAction func photoLibraryButtonTapped(_ sender: Any) {
-        
         picker.allowsEditing = false
         picker.delegate = self
         picker.sourceType = .photoLibrary
-       //present(picker, animated: true)
-        //performSegue(withIdentifier: "showDetailsVC", sender: self)
+        present(picker, animated: true)
         
-        present(picker, animated: true) {
-            self.performSegue(withIdentifier: "showDetailsVC", sender: self)
-        }
         
     }
     

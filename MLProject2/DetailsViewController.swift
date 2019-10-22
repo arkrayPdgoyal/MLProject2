@@ -17,7 +17,7 @@ class DetailsViewController: UIViewController {
     
     var capturedImage: UIImage!
     var classifier: String!
-    var pickedImage: UIImage!
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
