@@ -50,10 +50,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+       
         photoLibraryButton.isHidden = false
         activityIndicator.isHidden = true
-        //detailTapImageView.isHidden = true
         flashButton.setImage(imageOFF, for: .normal)
         capturedImageView.image = sourceImage
         identificationLabel.text = "Please 'TAP' screen to capture photo"
@@ -61,6 +60,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
         
         
      
+    }
+    
+   
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,6 +79,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //Hide navigation bar
+         navigationController?.setNavigationBarHidden(true, animated: animated)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapCameraView))
         tap.numberOfTouchesRequired = 1
@@ -102,8 +110,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
                 cameraView.layer.addSublayer(previewLayer!)
                 cameraView.addGestureRecognizer(tap)
                 captureSession.startRunning()
-                
-               
+             
 
             }
             
@@ -231,8 +238,19 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
         picker.sourceType = .photoLibrary
         present(picker, animated: true)
         
-        
     }
+    
+    
+    @IBAction func infoButtonTapped(_ sender: Any) {
+        
+        DispatchQueue.main.async {
+            let OnBoardVC = self.storyboard?.instantiateViewController(withIdentifier: "OnBoardVC") as! OnBoardingViewController
+            let appDelegate = UIApplication.shared.delegate
+            appDelegate?.window??.rootViewController = OnBoardVC
+            
+        }
+    }
+    
     
     
 }

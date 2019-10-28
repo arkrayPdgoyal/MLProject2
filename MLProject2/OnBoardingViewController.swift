@@ -21,6 +21,16 @@ class OnBoardingViewController: UIViewController, PaperOnboardingDelegate, Paper
         onBoardingView.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     func onboardingItemsCount() -> Int {
         return 3
     }
@@ -39,31 +49,31 @@ class OnBoardingViewController: UIViewController, PaperOnboardingDelegate, Paper
         
         return [
         OnboardingItemInfo(informationImage: tap!,
-                           title: "",
-                           description: "Tap Screen",
+                           title: "Tap",
+                           description: "Tap your screen",
                            pageIcon: tap!,
                            color: backgroundColor,
-                           titleColor: UIColor.white,
+                           titleColor: UIColor.lightGray,
                            descriptionColor: descriptionColor,
                            titleFont: titleFont!,
                            descriptionFont: descriptionFont!),
         
         OnboardingItemInfo(informationImage: capture!,
-                           title: "",
-                           description: "Capture Photo",
+                           title: "Capture",
+                           description: "Capture food photo",
                            pageIcon: capture!,
                            color: backgroundColor,
-                           titleColor: UIColor.white,
+                           titleColor: UIColor.lightGray,
                            descriptionColor: descriptionColor,
                            titleFont: titleFont!,
                            descriptionFont: descriptionFont!),
         
         OnboardingItemInfo(informationImage: verify!,
-                           title: "",
-                           description: "Check Captured Food",
+                           title: "Verify",
+                           description: "Check captured food",
                            pageIcon: verify!,
                            color: backgroundColor,
-                           titleColor: UIColor.white,
+                           titleColor: UIColor.lightGray,
                            descriptionColor: descriptionColor,
                            titleFont: titleFont!,
                            descriptionFont: descriptionFont!)
