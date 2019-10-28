@@ -3,15 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3F68C79B234B1DDF00C93290 /* ButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F68C79A234B1DDF00C93290 /* ButtonAnimation.swift */; };
 		3F93F3D22355666C008FA7DF /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F93F3D12355666C008FA7DF /* DetailsViewController.swift */; };
+		3FF9ACFB236675840088C2B7 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF9ACFA236675840088C2B7 /* OnBoardingViewController.swift */; };
 		9B4DB7832341E49B009FB378 /* JapFoodClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9B4DB7822341E49B009FB378 /* JapFoodClassifier.mlmodel */; };
 		9BA62676233D942700A8CB90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA62675233D942700A8CB90 /* AppDelegate.swift */; };
-		9BA62678233D942700A8CB90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA62677233D942700A8CB90 /* SceneDelegate.swift */; };
 		9BA6267A233D942700A8CB90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA62679233D942700A8CB90 /* ViewController.swift */; };
 		9BA6267D233D942700A8CB90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BA6267B233D942700A8CB90 /* Main.storyboard */; };
 		9BA6267F233D942700A8CB90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BA6267E233D942700A8CB90 /* Assets.xcassets */; };
@@ -25,12 +25,12 @@
 /* Begin PBXFileReference section */
 		3F68C79A234B1DDF00C93290 /* ButtonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAnimation.swift; sourceTree = "<group>"; };
 		3F93F3D12355666C008FA7DF /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		3FF9ACFA236675840088C2B7 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		5CC9B5119D33BC569E4E47C8 /* Pods_MLProject2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MLProject2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D6C89D9007EDEF3A84F9663 /* Pods-MLProject2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLProject2.debug.xcconfig"; path = "Target Support Files/Pods-MLProject2/Pods-MLProject2.debug.xcconfig"; sourceTree = "<group>"; };
 		9B4DB7822341E49B009FB378 /* JapFoodClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = JapFoodClassifier.mlmodel; sourceTree = "<group>"; };
 		9BA62672233D942700A8CB90 /* MLProject2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLProject2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BA62675233D942700A8CB90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9BA62677233D942700A8CB90 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9BA62679233D942700A8CB90 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9BA6267C233D942700A8CB90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9BA6267E233D942700A8CB90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,8 +96,8 @@
 				9BA6268B233D9FEF00A8CB90 /* View */,
 				9BA62689233D9FCF00A8CB90 /* Controller */,
 				9BA62675233D942700A8CB90 /* AppDelegate.swift */,
-				9BA62677233D942700A8CB90 /* SceneDelegate.swift */,
 				9BA62679233D942700A8CB90 /* ViewController.swift */,
+				3FF9ACFA236675840088C2B7 /* OnBoardingViewController.swift */,
 				3F93F3D12355666C008FA7DF /* DetailsViewController.swift */,
 				9BA6267E233D942700A8CB90 /* Assets.xcassets */,
 				9BA62683233D942700A8CB90 /* Info.plist */,
@@ -152,7 +152,7 @@
 				9BA6266E233D942700A8CB90 /* Sources */,
 				9BA6266F233D942700A8CB90 /* Frameworks */,
 				9BA62670233D942700A8CB90 /* Resources */,
-				DB0762491031682BD0635B81 /* [CP] Embed Pods Frameworks */,
+				05DC06D9711CEFE968DF402D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -210,7 +210,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		DB0762491031682BD0635B81 /* [CP] Embed Pods Frameworks */ = {
+		05DC06D9711CEFE968DF402D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -262,9 +262,9 @@
 				3F68C79B234B1DDF00C93290 /* ButtonAnimation.swift in Sources */,
 				9BA62692233DA79000A8CB90 /* RoundedImageView.swift in Sources */,
 				9B4DB7832341E49B009FB378 /* JapFoodClassifier.mlmodel in Sources */,
+				3FF9ACFB236675840088C2B7 /* OnBoardingViewController.swift in Sources */,
 				9BA6267A233D942700A8CB90 /* ViewController.swift in Sources */,
 				9BA62676233D942700A8CB90 /* AppDelegate.swift in Sources */,
-				9BA62678233D942700A8CB90 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        if !UserDefaults.standard.bool(forKey: "didSee") {
+            UserDefaults.standard.set(true, forKey: "didSee")
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainController = storyboard.instantiateViewController(withIdentifier: "OnBoardVC")
+            let nav1 = UINavigationController()
+            nav1.viewControllers = [mainController] //Set on board vc as rootviewcontroller
+            self.window?.rootViewController = nav1
+            self.window?.makeKeyAndVisible()
+        }
         
       
         return true
@@ -43,5 +53,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func switchViewControllers() {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let nav = storyboard.instantiateViewController(withIdentifier: "ViewController")
+        
+        self.window?.rootViewController = nav
+    }
     
 }
