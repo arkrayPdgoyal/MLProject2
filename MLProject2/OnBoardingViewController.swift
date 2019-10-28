@@ -17,8 +17,14 @@ class OnBoardingViewController: UIViewController, PaperOnboardingDelegate, Paper
     @IBOutlet weak var getStartedTapped: UIButton!
 
     override func viewDidLoad() {
-        onBoardingView.dataSource = self
-        onBoardingView.delegate = self
+        super.viewDidLoad()
+     
+        setupPaperOnboardingView()
+        
+        view.bringSubviewToFront(skipButtonTapped)
+        view.bringSubviewToFront(getStartedTapped)
+        
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +40,29 @@ class OnBoardingViewController: UIViewController, PaperOnboardingDelegate, Paper
     func onboardingItemsCount() -> Int {
         return 3
     }
+    
+    private func setupPaperOnboardingView() {
+        let onboarding = PaperOnboarding()
+        onboarding.delegate = self
+        onboarding.dataSource = self
+        onboarding.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(onboarding)
+        
+        //Add Constraints
+        for attribute: NSLayoutConstraint.Attribute in [.left, .right, .top, .bottom] {
+            let contraint = NSLayoutConstraint(item: onboarding,
+                                               attribute: attribute,
+                                               relatedBy: .equal,
+                                               toItem: view,
+                                               attribute: attribute,
+                                               multiplier: 1,
+                                               constant: 0)
+            
+            view.addConstraint(contraint)
+        }
+        
+    }
+ 
     
     func onboardingItem(at index: Int) -> OnboardingItemInfo {
         let descriptionColor = UIColor(red: 38/255.0, green: 198/255.0, blue: 218/255.0, alpha: 1.0)
@@ -76,7 +105,7 @@ class OnBoardingViewController: UIViewController, PaperOnboardingDelegate, Paper
                            titleColor: UIColor.lightGray,
                            descriptionColor: descriptionColor,
                            titleFont: titleFont!,
-                           descriptionFont: descriptionFont!)
+                           descriptionFont: descriptionFont!),
         
         
         
@@ -84,7 +113,7 @@ class OnBoardingViewController: UIViewController, PaperOnboardingDelegate, Paper
         ] [index]
     }
 
-    func onboardingConfigurationItem(_: OnboardingContentViewItem, index _: Int) {
+    func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
         
     }
     
