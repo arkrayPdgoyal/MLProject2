@@ -215,9 +215,15 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @objc func handleTap(sender: UITapGestureRecognizer) {
-       
-       performSegue(withIdentifier: "showDetailsVC", sender: self)
+        if self.identificationLabel.text == "I'm not sure what this is. Please try again." {
+            let alertController = UIAlertController(title: "Alert", message: "Photo cannot be identified. Please try again.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alertController, animated: true, completion: nil)
+        } else {
+            performSegue(withIdentifier: "showDetailsVC", sender: self)
+        }
     }
+    
     
     @IBAction func flashButtonTapped(_ sender: Any) {
         switch flashControlState {
