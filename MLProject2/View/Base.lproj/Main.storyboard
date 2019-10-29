@@ -394,37 +394,32 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="San-xH-V6M">
-                                <rect key="frame" x="58" y="620" width="293" height="58"/>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="San-xH-V6M">
+                                <rect key="frame" x="58" y="660" width="293" height="69"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="25"/>
                                 <state key="normal" title="GET STARTED"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="YQ6-Li-vLc"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="yq1-TM-vWE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdS-xq-BD6">
-                                <rect key="frame" x="300" y="69" width="94" height="57"/>
+                                <rect key="frame" x="350" y="69" width="44" height="40"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                 <state key="normal" title="SKIP"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Ur9-dM-FY6"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="EIh-3d-IXc"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="cdS-xq-BD6" secondAttribute="trailing" constant="20" id="2TU-WQ-v4a"/>
-                            <constraint firstItem="San-xH-V6M" firstAttribute="top" secondItem="C49-fy-0Sq" secondAttribute="bottom" constant="576" id="6P3-jT-RHp"/>
-                            <constraint firstItem="F6s-dI-5Nr" firstAttribute="top" secondItem="RaI-Ml-79p" secondAttribute="top" id="7ch-uG-Qr6"/>
-                            <constraint firstItem="cdS-xq-BD6" firstAttribute="top" secondItem="C49-fy-0Sq" secondAttribute="bottom" constant="25" id="GqR-pJ-xey"/>
-                            <constraint firstItem="San-xH-V6M" firstAttribute="leading" secondItem="RaI-Ml-79p" secondAttribute="leading" constant="58" id="LWh-SJ-yBz"/>
-                            <constraint firstItem="cdS-xq-BD6" firstAttribute="leading" secondItem="RaI-Ml-79p" secondAttribute="leading" constant="300" id="QBu-ej-dPn"/>
-                            <constraint firstAttribute="bottom" secondItem="F6s-dI-5Nr" secondAttribute="bottom" id="Xqp-ka-eB4"/>
-                            <constraint firstItem="F6s-dI-5Nr" firstAttribute="centerX" secondItem="San-xH-V6M" secondAttribute="centerX" constant="2.5" id="m6N-VM-CiQ"/>
-                            <constraint firstAttribute="trailing" secondItem="F6s-dI-5Nr" secondAttribute="trailing" id="oHC-kO-Gul"/>
-                            <constraint firstItem="LSg-EW-Yur" firstAttribute="top" secondItem="San-xH-V6M" secondAttribute="bottom" constant="184" id="qYR-gP-ppS"/>
-                            <constraint firstItem="F6s-dI-5Nr" firstAttribute="leading" secondItem="RaI-Ml-79p" secondAttribute="leading" id="u5I-FV-Za2"/>
-                            <constraint firstItem="LSg-EW-Yur" firstAttribute="top" secondItem="cdS-xq-BD6" secondAttribute="bottom" constant="736" id="zXw-0d-Smr"/>
+                            <constraint firstAttribute="trailing" secondItem="F6s-dI-5Nr" secondAttribute="trailing" id="1XK-Av-qqj"/>
+                            <constraint firstItem="F6s-dI-5Nr" firstAttribute="leading" secondItem="RaI-Ml-79p" secondAttribute="leading" id="HHg-ao-6KF"/>
+                            <constraint firstItem="cdS-xq-BD6" firstAttribute="top" secondItem="C49-fy-0Sq" secondAttribute="bottom" constant="25" id="Mfs-4l-jPl"/>
+                            <constraint firstItem="F6s-dI-5Nr" firstAttribute="top" secondItem="RaI-Ml-79p" secondAttribute="top" id="dS0-aw-QXb"/>
+                            <constraint firstItem="cdS-xq-BD6" firstAttribute="trailing" secondItem="RaI-Ml-79p" secondAttribute="trailingMargin" id="eNq-tg-xQk"/>
+                            <constraint firstAttribute="bottom" secondItem="F6s-dI-5Nr" secondAttribute="bottom" id="nDD-Jm-Tdp"/>
                         </constraints>
                     </view>
                     <connections>
@@ -448,7 +443,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="WZ9-gb-K3h"/>
-        <segue reference="YQ6-Li-vLc"/>
+        <segue reference="EIh-3d-IXc"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.14901960780000001" green="0.77647058820000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>
